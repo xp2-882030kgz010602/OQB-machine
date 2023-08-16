@@ -66,6 +66,7 @@ var checksolve=function(fumen,queue,save,hidden,pieces){//Either says yes or giv
       result=failqueue;
     }
   }else{//For this case, just give it 6 or 7 pieces and put the rest in hidden I guess?
+    queue=queue.substring(0,see-1);
     var board=fumen2setupboard(fumen);
     var checkfumen=utils.encoder.encode([{field:utils.Field.create(board.map(row=>row.join("")).join(""))}]);
     //Use setup to get all possible solves
@@ -200,7 +201,7 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
       console.log(header+" Trying "+a+" placement at "+newfumen);
       //If it's not see-11 it's not see-7
       console.log(header+"  Running see11 check");
-      var issee11=checksolve(newfumen,b+cdefg,save,hidden,pieces+1);
+      var issee11=checksolve(newfumen,makeseequeue(b+cdefg,hidden,10-pieces),save,hidden,pieces+1);
       if(issee11==="yes"){
         console.log(header+"  see11 check passed");
         if(pieces===maxpieces-1){//Placing the 4th piece here guarantees a solve for all possible revealed pieces.
@@ -258,7 +259,7 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
       console.log(header+" Trying "+b+" placement at "+newfumen);
       //If it's not see-11 it's not see-7
       console.log(header+"  Running see11 check");
-      var issee11=checksolve(newfumen,a+cdefg,save,hidden,pieces+1);
+      var issee11=checksolve(newfumen,makeseequeue(a+cdefg,hidden,10-pieces),save,hidden,pieces+1);
       if(issee11==="yes"){
         console.log(header+"  see11 check passed");
         if(pieces===maxpieces-1){//Placing the 4th piece here guarantees a solve for all possible revealed pieces.
@@ -326,3 +327,4 @@ var blank="v115@vhAAgh";
 //issee7(blank,"ITIJZOS","L",0);
 //issee7(blank,"IITLJOS","Z",0);
 issee7(blank,"IJOTTJI",["LOSZ"],0,"T");
+//issee7("https://harddrop.com/fumen/?v115@9gC8GeC8GeC8GeG8MeAgH","ILS",["JOTZ"],4,"X");
