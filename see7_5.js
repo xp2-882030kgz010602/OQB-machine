@@ -155,10 +155,10 @@ var makeseequeue=function(queue,hidden,n){
 var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZOLZLJ",["ISOT"],0,"X"
   var header=". ".repeat(pieces);
   var result=false;
-  console.log(header+"Checking "+fumen+" with queue="+queue+" (hidden="+hidden.join(";")+")");
   if(hidden[0]===""){//A piece from the next bag is now appearing in the queue
     hidden=hidden.slice(1);
   }
+  console.log(header+"Checking "+fumen+" with queue="+queue+" (hidden="+hidden.join(";")+")");
   if(pieces===minpieces){//Sometimes you can always solve directly from 3p without knowing the last piece in the queue
     if(queue.indexOf(save)===-1||hidden[0]===save){//X won't appear in the queue until someone hacks sfinder to do pentomino PCs
       console.log(header+" Running second "+minpieces+"p check");
@@ -211,7 +211,7 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
         }else if(pieces===minpieces-1){//Check if the 3p is 100% before trying each possible revealed piece
           if(queue.indexOf(save)===-1){
             console.log(header+"  Running first "+minpieces+"p check");
-            var queue3p=makeseequeue(b+cdefg,hidden,10-pieces);
+            var queue3p=makeseequeue(b+cdefg,hidden,9-pieces);
             var check3p=checksolve(newfumen,queue3p,"X");
             if(check3p==="yes"){
               result=true;
@@ -259,7 +259,7 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
       console.log(header+" Trying "+b+" placement at "+newfumen);
       //If it's not see-11 it's not see-7
       console.log(header+"  Running see11 check");
-      var issee11=checksolve(newfumen,makeseequeue(a+cdefg,hidden,10-pieces),save,hidden,pieces+1);
+      var issee11=checksolve(newfumen,makeseequeue(a+cdefg,hidden,9-pieces),save,hidden,pieces+1);
       if(issee11==="yes"){
         console.log(header+"  see11 check passed");
         if(pieces===maxpieces-1){//Placing the 4th piece here guarantees a solve for all possible revealed pieces.
@@ -326,5 +326,6 @@ var blank="v115@vhAAgh";
 //issee7(blank,"ITOJLSI","Z",0);
 //issee7(blank,"ITIJZOS","L",0);
 //issee7(blank,"IITLJOS","Z",0);
-issee7(blank,"IJOTTJI",["LOSZ"],0,"T");
+//issee7(blank,"IJOTTJI",["LOSZ"],0,"T");
 //issee7("https://harddrop.com/fumen/?v115@9gC8GeC8GeC8GeG8MeAgH","ILS",["JOTZ"],4,"X");
+issee7(blank,"ISISJLT",["OZ","IJLOSTZ"],0,"X");
