@@ -1,7 +1,4 @@
-var see=7;//Comments assume see=7 even if this is not 7.
-var height=4;
-var minpieces=10-see;
-var maxpieces=11-see;
+//Set the "see" variable at the bottom
 var fs=require("fs");
 var utils=require("tetris-fumen");
 const {execSync}=require("node:child_process");
@@ -313,19 +310,9 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
   return result;
 };
 var blank="v115@vhAAgh";
-//issee7("https://harddrop.com/fumen/?v115@GhA8HeD8DeF8CeE8JeAgH","ZLJISOT","",4);
-//issee7(blank,"SZOLZLJ",["ISOT"],0,"X");
-//issee7("v115@bhzhPeAgH","ITLJSOZ",["IJLOSTZ"],0,"X");
-//issee7(blank,"JTLOIZS","IJLOSTZ",0);
-//issee7(blank,"IITLJSO","Z",0);
-//issee7("http://fumen.zui.jp/?v115@GhwhIewhRpCeR4BewhRpBeR4CewhJeAgWDAPddBA","LTJOZSZ","IJLST",3);
-//issee7(blank,"OIJZTLO","S",0);
-//issee7("https://harddrop.com/fumen/?v115@GhwhIewhRpGewhRpGewhJeAgH","JZTLOSO","IJLSTZ",2);
-//issee7(blank,"ZLILJSZ","OT",0);
-//issee7(blank,"SZTOLIJ","SZ",0);
-//issee7(blank,"ITOJLSI","Z",0);
-//issee7(blank,"ITIJZOS","L",0);
-//issee7(blank,"IITLJOS","Z",0);
-//issee7(blank,"IJOTTJI",["LOSZ"],0,"T");
-//issee7("https://harddrop.com/fumen/?v115@9gC8GeC8GeC8GeG8MeAgH","ILS",["JOTZ"],4,"X");
-issee7(blank,"ISISLJT",["OZ","IJLOSTZ"],0,"X");
+var see=4;//Comments assume see=7 even if this is not 7.
+var height=4;
+var minpieces=10-see;
+var maxpieces=11-see;
+issee7("https://harddrop.com/fumen/?v115@HhC8GeC8FeC8EeC8JeAgH","IIJZ",["LOST"],3,"X");
+//issee7("https://harddrop.com/fumen/?v115@DhB8HeA8BeA8DeF8DeF8JeAgH","ITO",["JLSZ"],4,"X");
