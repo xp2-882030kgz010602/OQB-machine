@@ -310,6 +310,7 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
   return result;
 };
 var blank="v115@vhAAgh";
+var bag="IJLOSTZ";
 var see=4;//Comments assume see=7 even if this is not 7.
 var height=4;
 var minpieces=10-see;
