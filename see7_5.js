@@ -52,7 +52,7 @@ var gappp=function(fumen,piece){//Get All Possible Piece Placements
 var checksolve=function(fumen,queue,save,hidden,pieces){//Either says yes or gives a fail queue.
   var result;
   if(save==="X"){
-    var data=execSync("java -jar sfinder.jar percent -t "+fumen+" -p "+queue+" -td 0 -fc 1 --kicks +jstris180 --drop 180")+"";    
+    var data=execSync("java -jar sfinder.jar percent -t "+fumen+" -p "+queue+" -td 0 -fc 1 -c "+height+" --kicks +jstris180 --drop 180")+"";    
     data=data.split("\r\n");
     var solvable=data[data.indexOf("# Output")+1].substring(10,17);
     if(solvable==="100.00%"){
@@ -312,8 +312,8 @@ var issee7=function(fumen,queue,hidden,pieces,save){//Example: "v115@vhAAgh","SZ
 var blank="v115@vhAAgh";
 var bag="IJLOSTZ";
 var see=4;//Comments assume see=7 even if this is not 7.
-var height=4;
+var height=4;//I'm not sure if this works properly.
 var minpieces=10-see;
 var maxpieces=11-see;
-issee7("https://harddrop.com/fumen/?v115@HhC8GeC8FeC8EeC8JeAgH","IIJZ",["LOST"],3,"X");
+issee7("https://fumen.zui.jp/?v115@ahglGeilJeAgH","TIJTJLI",["OSZ"],1,"T");
 //issee7("https://harddrop.com/fumen/?v115@DhB8HeA8BeA8DeF8DeF8JeAgH","ITO",["JLSZ"],4,"X");
